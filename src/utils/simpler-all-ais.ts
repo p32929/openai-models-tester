@@ -21,7 +21,7 @@ export class SimplerAllAis {
         prompt: string,
         previousConversations?: Array<{ role: "user" | "assistant" | "system", text: string }>, // New parameter for conversation history
         model?: "gpt-4o-mini" | "gpt-4o" | "o1-preview",
-    }): Promise<string | undefined> {
+    }, apiKey: string): Promise<string | undefined> {
         if (!obj.model) {
             obj.model = "gpt-4o-mini"
         }
@@ -53,7 +53,7 @@ export class SimplerAllAis {
         }
 
         const openai = new OpenAI({
-            apiKey: process.env.OPENAI_API_KEY,
+            apiKey: apiKey,
         });
 
         try {

@@ -18,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 data,
                 previousConversations,
                 model,
-            });
+            }, apiKey);
             res.status(200).json({ success: true, message: response });
         } catch (error) {
             console.error("Error in askGpt API:", error);
